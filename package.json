@@ -1,0 +1,14 @@
+{
+  "name": "com.extelen.wave",
+  "version": "1.0.0",
+  "displayName": "[ETL] Wave",
+  "description": "A simple trigonometric wave controller in all axis.",
+  "unity": "2020.3", 
+  "dependencies": {
+  },
+  "keywords": ["wave", "effect"],
+  "author": {
+      "name": "Rodrigo Saguer",
+      "email": "extelendev@gmail.com"
+  }
+}

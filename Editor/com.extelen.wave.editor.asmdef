@@ -1,0 +1,16 @@
+{
+    "name": "com.extelen.wave.editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:ad3ee73d5a05f094c92c1760f5e6ded6"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
