@@ -119,7 +119,7 @@ public class Wave : MonoBehaviour
     [SerializeField] private float m_speedZ = 60f;
 
     //Coroutine
-    private Coroutine m_routine = null;
+    private bool m_isRunning = false;
 
     //Methods
     private void OnEnable()
@@ -128,7 +128,8 @@ public class Wave : MonoBehaviour
     }
     private void OnDisable()
     {
-        if (m_routine != null) StopCoroutine(m_routine);
+        m_isRunning = false;
+        StopAllCoroutines();
     }
     private void OnValidate()
     {
@@ -142,11 +143,16 @@ public class Wave : MonoBehaviour
 
         if (m_moveInX || m_moveInY || m_moveInZ)
         {
-            if (m_routine == null) m_routine = StartCoroutine(Brain());
+            if (m_isRunning == false)
+            {
+                m_isRunning = true;
+                StartCoroutine(Brain());
+            }
         }
         else
         {
-            if (m_routine != null) StopCoroutine(m_routine);
+            m_isRunning = false;
+            StopAllCoroutines();
         }
     }
     private void AddAngles()
@@ -189,8 +195,9 @@ public class Wave : MonoBehaviour
     private IEnumerator Brain()
     {
         WaitForEndOfFrame m_waitForEndOfFrame = new WaitForEndOfFrame();
+        m_isRunning = true;
 
-        while (true)
+        while (m_isRunning)
         {
             AddAngles();
             yield return m_waitForEndOfFrame;
