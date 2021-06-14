@@ -184,9 +184,9 @@ public class Wave : MonoBehaviour
     {
         if (!m_waveable) return;
 
-        float m_x = Mathf.Sin(m_angleX * Mathf.Deg2Rad) * m_intensityX * (m_moveInX ? 1 : 0);
-        float m_y = Mathf.Sin(m_angleY * Mathf.Deg2Rad) * m_intensityY * (m_moveInY ? 1 : 0);
-        float m_z = Mathf.Sin(m_angleZ * Mathf.Deg2Rad) * m_intensityZ * (m_moveInZ ? 1 : 0);
+        float m_x = (Mathf.Sin(m_angleX * Mathf.Deg2Rad) * m_intensityX * (m_moveInX ? 1 : 0)) + m_offsetX;
+        float m_y = (Mathf.Sin(m_angleY * Mathf.Deg2Rad) * m_intensityY * (m_moveInY ? 1 : 0)) + m_offsetY;
+        float m_z = (Mathf.Sin(m_angleZ * Mathf.Deg2Rad) * m_intensityZ * (m_moveInZ ? 1 : 0)) + m_offsetZ;
 
         m_waveable.localPosition = new Vector3(m_x, m_y, m_z);
     }
